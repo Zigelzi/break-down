@@ -37,6 +37,7 @@ public class MovementHandler : MonoBehaviour
 
     private void MovePlayer(float horizontalInput, float verticalInput)
     {
+        // TODO: Fix movement being on global axis, not on local axis
         Vector3 turnForce = new Vector3(verticalInput, 0, -horizontalInput);
         Vector3 movementForce = new Vector3(0, 0, verticalInput);
         playerRb.AddForce(movementForce, ForceMode.Impulse);
