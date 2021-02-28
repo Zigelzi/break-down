@@ -6,15 +6,14 @@ public class DoorHandler : MonoBehaviour
 {
     [SerializeField] GameObject doorTriggerGameObject;
     [SerializeField] float openingSpeed = 2f;
-    [SerializeField] bool moveDown = false;
+    [SerializeField] bool doorAtUpperLimit = false;
+    [SerializeField] bool doorAtLowerLimit = false;
 
-    private float startYPosition;
     TriggerPlateHandler doorTrigger;
 
     // Start is called before the first frame update
     void Start()
     {
-        startYPosition = transform.position.y;
         doorTrigger = doorTriggerGameObject.GetComponent<TriggerPlateHandler>();
     }
 
@@ -26,25 +25,41 @@ public class DoorHandler : MonoBehaviour
 
     private void MoveDoor()
     {
-        float doorHeight = transform.GetChild(0).localScale.y;
-        float currentYPosition = transform.position.y;
-
-        float positionDifference = startYPosition - currentYPosition;
-        if (positionDifference > doorHeight)
+        if (!IsDoorAtUpperLimit() && doorTrigger.platePushed)
         {
-            moveDown = false;
-        } else if (positionDifference <= 0)
-        {
-            moveDown = true;
-        }
-        if (moveDown && doorTrigger.platePushed)
+            Debug.Log("Door at upper Limit!");
+            transform.Translate(Vector3.up * openingSpeed * Time.deltaTime);
+        } else if (!IsDoorAtLowerLimit())
         {
             transform.Translate(Vector3.down * openingSpeed * Time.deltaTime);
-        } else if (!moveDown && !doorTrigger.platePushed)
-        {
-            transform.Translate(Vector3.up * openingSpeed * Time.deltaTime);
         }
-        
-        
+
+    }
+
+    private bool IsDoorAtUpperLimit()
+    {
+        float currentYPosition = transform.position.y;
+        float doorHeight = transform.GetChild(0).localScale.y;
+
+        if (currentYPosition >= doorHeight)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
+    }
+
+    private bool IsDoorAtLowerLimit()
+    {
+        float currentYPosition = transform.position.y;
+
+        if (currentYPosition <= 0)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
     }
 }
