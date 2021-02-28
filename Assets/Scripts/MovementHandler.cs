@@ -36,8 +36,8 @@ public class MovementHandler : MonoBehaviour
 
     private void MovePlayer(float verticalInput)
     {
-        Vector3 movementForce = new Vector3(0, 0, verticalInput * movementSpeed);
-        playerRb.AddRelativeForce(movementForce, ForceMode.Impulse);
+        Vector3 movementForce = new Vector3(verticalInput * movementSpeed, 0, 0);
+        playerRb.AddRelativeTorque(movementForce, ForceMode.Impulse);
     }
 
     private void TurnPlayer(float horzintalInput)
@@ -46,6 +46,6 @@ public class MovementHandler : MonoBehaviour
 
         float rotationAmount = horzintalInput * turnSpeed;
         Vector3 rotationVector = new Vector3(0, rotationAmount, 0);
-        gameObject.transform.Rotate(rotationVector);
+        gameObject.transform.Rotate(rotationVector, Space.World);
     }
 }
