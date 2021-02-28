@@ -27,7 +27,6 @@ public class DoorHandler : MonoBehaviour
     {
         if (!IsDoorAtUpperLimit() && doorTrigger.platePushed)
         {
-            Debug.Log("Door at upper Limit!");
             transform.Translate(Vector3.up * openingSpeed * Time.deltaTime);
         } else if (!IsDoorAtLowerLimit())
         {

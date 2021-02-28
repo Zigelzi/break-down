@@ -39,7 +39,6 @@ public class PlayerManager : MonoBehaviour
                 Debug.Log("Level Complete!");
                 break;
             default:
-                Debug.Log("You hit something else.");
                 break;
         }
     }
