@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-
-    private float levelLoadDelay = 1f;
-
+    [SerializeField] GameObject gameManager;
+    private LevelManager levelManager;
     // Game State
-    enum State { Alive, Died, Transcending }
-    State gameState = State.Alive;
+    public enum State { Alive, Died, Transcending }
+    public State gameState = State.Alive;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        levelManager = gameManager.GetComponent<LevelManager>();
     }
 
     // Update is called once per frame
@@ -37,6 +36,8 @@ public class PlayerManager : MonoBehaviour
         {
             case "Finish":
                 Debug.Log("Level Complete!");
+                gameState = State.Transcending;
+                levelManager.LoadNextLevel();
                 break;
             default:
                 break;

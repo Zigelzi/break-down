@@ -10,16 +10,22 @@ public class MovementHandler : MonoBehaviour
 
     [Header("Player components")]
     private Rigidbody playerRb;
+    private PlayerManager playerState;
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        playerState = GetComponent<PlayerManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        HandleInput();
+        if (playerState.gameState == PlayerManager.State.Alive)
+        {
+            HandleInput();
+        }
+        
     }
 
     private void HandleInput()
