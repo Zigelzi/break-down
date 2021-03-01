@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - PressurePlate
+  - Player_Primary
+  - Player_Secondary
   layers:
   - Default
   - TransparentFX

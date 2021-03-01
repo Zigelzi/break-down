@@ -740,6 +740,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5111455704397399546, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}
+      propertyPath: m_TagString
+      value: Player_Primary
+      objectReference: {fileID: 0}
     - target: {fileID: 5596025766463007306, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}
       propertyPath: gameManager
       value: 
@@ -791,6 +795,14 @@ PrefabInstance:
     - target: {fileID: 5882474957370232363, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882474957530356926, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}
+      propertyPath: movementSpeed
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848843376483957353, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}
+      propertyPath: movementSpeed
+      value: 5000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}

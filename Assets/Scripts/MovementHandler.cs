@@ -15,7 +15,7 @@ public class MovementHandler : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        playerState = GetComponent<PlayerManager>();
+        playerState = transform.parent.gameObject.GetComponent<PlayerManager>();
     }
 
     // Update is called once per frame
@@ -30,8 +30,21 @@ public class MovementHandler : MonoBehaviour
 
     private void HandleInput()
     {
-        float rawHorizontalInput = Input.GetAxis("Horizontal");
-        float rawVerticalInput = Input.GetAxis("Vertical");
+        float rawHorizontalInput;
+        float rawVerticalInput;
+
+        // Check which axis should be used for movement
+        // Primary is the large or small one, secondary is small two
+        if (IsPrimaryObject())
+        {
+            rawHorizontalInput = Input.GetAxis("HorizontalPrimary");
+            rawVerticalInput = Input.GetAxis("VerticalPrimary");
+        } else
+        {
+            rawHorizontalInput = Input.GetAxis("HorizontalSecondary");
+            rawVerticalInput = Input.GetAxis("VerticalSecondary");
+        }
+        
 
         float horizontalInput = rawHorizontalInput * Time.deltaTime;
         float verticalInput = rawVerticalInput * Time.deltaTime;
@@ -53,5 +66,16 @@ public class MovementHandler : MonoBehaviour
         float rotationAmount = horzintalInput * turnSpeed;
         Vector3 rotationVector = new Vector3(0, rotationAmount, 0);
         gameObject.transform.Rotate(rotationVector, Space.World);
+    }
+
+    private bool IsPrimaryObject()
+    {
+        if (tag == "Player_Primary")
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
     }
 }
