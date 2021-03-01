@@ -15,7 +15,8 @@ public class CameraHandler : MonoBehaviour
 
     private void FollowPlayer()
     {
-        Vector3 playerPosition = player.transform.position;
-        transform.position = playerPosition + cameraOffset;
+        //player = transform.parent.transform.
+        //Vector3 playerPosition = player.transform.position;
+        //transform.position = playerPosition + cameraOffset;
     }
 }

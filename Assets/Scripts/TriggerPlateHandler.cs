@@ -8,7 +8,7 @@ public class TriggerPlateHandler : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag.Contains("Player"))
         {
             platePushed = true;
         }
@@ -16,7 +16,7 @@ public class TriggerPlateHandler : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag.Contains("Player"))
         {
             platePushed = false;
         }
