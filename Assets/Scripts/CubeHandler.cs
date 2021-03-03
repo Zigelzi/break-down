@@ -11,7 +11,7 @@ public class CubeHandler : MonoBehaviour
     [Tooltip("Blue")] [SerializeField] GameObject smallPlayerCubeTwo;
 
     [Header("Cube properties")]
-    [SerializeField] bool isCombined = true;
+    public bool isCombined = true;
     [SerializeField] float bounceAmount = 100f;
     // Start is called before the first frame update
     void Start()
