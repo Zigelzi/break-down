@@ -11,12 +11,12 @@ public class MovementHandler : MonoBehaviour
 
     private Rigidbody cubeRb;
 
-    private PlayerManager playerState;
+    private GameStateHandler gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerState = transform.parent.GetComponent<PlayerManager>();
+        gameManager = GameObject.FindWithTag("GameController").GetComponent<GameStateHandler>();
 
         cubeRb = GetComponent<Rigidbody>();
         cubeRb.maxAngularVelocity = maxSpeed;
@@ -26,7 +26,7 @@ public class MovementHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerState.gameState == PlayerManager.State.Alive)
+        if (gameManager.gameState == GameStateHandler.State.Alive)
         {
             HandleInput();
         }

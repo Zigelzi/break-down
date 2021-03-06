@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5882474957370232362}
   - component: {fileID: 4492565175148559844}
-  - component: {fileID: 318242640502527255}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -53,20 +52,6 @@ MonoBehaviour:
   xBounceAmout: 100
   yBounceAmout: 10
   spawnOffset: {x: 2, y: 0, z: 0}
---- !u!114 &318242640502527255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5882474957370232363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 192e4154d3d79294ea4476f3d1848901, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 4019006680601926560, guid: 1eff3a7ee237d9e489f1792ce7d89c21, type: 3}
-  gameState: 0
 --- !u!1 &5882474958081938419
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3343580007983356202}
   - component: {fileID: 4899170075521118534}
   - component: {fileID: 5822437007763271811}
+  - component: {fileID: 4116631514849567425}
   m_Layer: 0
   m_Name: PlayerCubeSmall_One
   m_TagString: Player_Primary
@@ -143,3 +144,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 0}
   target: {fileID: 0}
+--- !u!114 &4116631514849567425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248721600509458016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192e4154d3d79294ea4476f3d1848901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: 0

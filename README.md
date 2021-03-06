@@ -22,13 +22,16 @@ Things to work on
 #### Player
 - [x] Create basic movement for large cube (WASD)
 - [x] Create basic movement for small cubes (WASD + arrow keys?)
-- [ ] Create camera movement
+- [x] Create camera movement
 - [x] Create splitting of the large cube
 - [x] Create merging of small cubes
 - [ ] Refine player movement
+- [ ] Pull small cubes together before merging into large cube (spring joint?)
 
 #### Obstacles
 - [x] Create door that opens on trigger
 - [ ] Create oscillating obstacle
 - [ ] Create falling floor obstacle
 - [ ] Create narrow path obstacle
+- [ ] Create 3 different levels
+- [ ] Create door with two triggers

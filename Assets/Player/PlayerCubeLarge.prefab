@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7890693774088089796}
   - component: {fileID: 6865432039744131404}
   - component: {fileID: 6865432039744131405}
-  - component: {fileID: 477763309919672281}
+  - component: {fileID: 7186707245774291842}
   m_Layer: 0
   m_Name: PlayerCubeLarge
   m_TagString: Player_Primary
@@ -129,17 +129,16 @@ MonoBehaviour:
   cubeMovementSpeed: 3000
   turnSpeed: 80
   maxSpeed: 200
---- !u!136 &477763309919672281
-CapsuleCollider:
+--- !u!114 &7186707245774291842
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5191485162054141961}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.49384725
-  m_Height: 1.0092307
-  m_Direction: 0
-  m_Center: {x: 0.0023347735, y: -0.001471281, z: -0.0014275908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192e4154d3d79294ea4476f3d1848901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: 0

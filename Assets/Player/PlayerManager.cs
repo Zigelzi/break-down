@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] GameObject gameManager;
+    private GameStateHandler gameManager;
     private LevelManager levelManager;
-
-    // Game State
-    public enum State { Alive, Died, Transcending }
-    public State gameState = State.Alive;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.FindWithTag("GameController").GetComponent<GameStateHandler>();
         levelManager = gameManager.GetComponent<LevelManager>();
     }
 
@@ -23,9 +20,14 @@ public class PlayerManager : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider trigger)
     {
-        if (gameState != State.Alive)
+        
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (gameManager.gameState != GameStateHandler.State.Alive)
         {
             /* 
              * Prevent processing any additional collisions when not alive
@@ -37,7 +39,7 @@ public class PlayerManager : MonoBehaviour
         {
             case "Finish":
                 Debug.Log("Level Complete!");
-                gameState = State.Transcending;
+                gameManager.gameState = GameStateHandler.State.Transcending;
                 levelManager.LoadNextLevel();
                 break;
             default:
