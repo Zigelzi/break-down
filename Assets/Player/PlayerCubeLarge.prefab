@@ -126,9 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78560d5d9f6be7d44b6b37da2a8632ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeMovementSpeed: 3000
+  cubeMovementSpeed: 5000
   turnSpeed: 80
-  maxSpeed: 200
+  maxSpeed: 300
 --- !u!114 &7186707245774291842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,4 +141,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 192e4154d3d79294ea4476f3d1848901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: 0

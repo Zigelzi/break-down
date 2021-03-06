@@ -44,7 +44,12 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void RestartGame()
+    public void RestartGameAfterDelay()
+    {
+        Invoke("RestartGame", levelLoadDelay);
+    }
+
+    private void RestartGame()
     {
         SceneManager.LoadScene(0);
     }

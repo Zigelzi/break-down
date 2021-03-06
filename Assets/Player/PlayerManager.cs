@@ -20,9 +20,12 @@ public class PlayerManager : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider trigger)
+    void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.tag == "DeathArea")
+        {
+            levelManager.RestartGameAfterDelay();
+        }
     }
 
     void OnCollisionEnter(Collision collision)

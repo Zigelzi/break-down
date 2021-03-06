@@ -155,7 +155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158131263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 25}
+  m_LocalPosition: {x: 0, y: -2.5, z: 25}
   m_LocalScale: {x: 10, y: 5, z: 10}
   m_Children: []
   m_Father: {fileID: 2664241162109644629}
@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 864486114}
   - component: {fileID: 864486113}
   - component: {fileID: 864486112}
+  - component: {fileID: 864486116}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -410,6 +411,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &864486116
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864486111}
+  serializedVersion: 2
+  m_Mass: 1000
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &907982122
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +549,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059426515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 5}
+  m_LocalPosition: {x: 0, y: -2.5, z: 5}
   m_LocalScale: {x: 50, y: 5, z: 30}
   m_Children: []
   m_Father: {fileID: 2664241162109644629}
@@ -1008,7 +1025,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832900355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 55}
+  m_LocalPosition: {x: 0, y: -2.5, z: 55}
   m_LocalScale: {x: 50, y: 5, z: 50}
   m_Children: []
   m_Father: {fileID: 2664241162109644629}
@@ -1375,7 +1392,7 @@ GameObject:
   - component: {fileID: 2019850706}
   m_Layer: 0
   m_Name: DeathArea
-  m_TagString: Untagged
+  m_TagString: DeathArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
