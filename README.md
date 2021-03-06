@@ -21,10 +21,10 @@ Things to work on
 
 #### Player
 - [x] Create basic movement for large cube (WASD)
-- [ ] Create basic movement for small cubes (WASD + arrow keys?)
+- [x] Create basic movement for small cubes (WASD + arrow keys?)
 - [ ] Create camera movement
-- [ ] Create splitting of the large cube
-- [ ] Create merging of small cubes
+- [x] Create splitting of the large cube
+- [x] Create merging of small cubes
 - [ ] Refine player movement
 
 #### Obstacles

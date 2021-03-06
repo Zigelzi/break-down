@@ -519,8 +519,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4492565175148559844, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}
-      propertyPath: bounceAmount
-      value: 5
+      propertyPath: spawnOffset.x
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5882474957370232362, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}
       propertyPath: m_RootOrder
@@ -532,7 +532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5882474957370232362, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 5882474957370232362, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -569,10 +569,6 @@ PrefabInstance:
     - target: {fileID: 5882474957370232363, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7153952519960650879, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}
-      propertyPath: maxSpeed
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}

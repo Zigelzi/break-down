@@ -12,7 +12,10 @@ public class CubeHandler : MonoBehaviour
 
     [Header("Cube properties")]
     public bool isCombined = true;
-    [SerializeField] float bounceAmount = 100f;
+    [SerializeField] float xBounceAmout = 100f;
+    [SerializeField] float yBounceAmout = 10;
+
+    [SerializeField] Vector3 spawnOffset = new Vector3(2, 0, 0);
     // Start is called before the first frame update
     void Start()
     {
@@ -32,10 +35,11 @@ public class CubeHandler : MonoBehaviour
             Vector3 parentGameObjectPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             if (isCombined)
             {
-                
+                // Add offset to spawn position so cubes don't affect each other
+                Vector3 offsetSpawnPosition = parentGameObjectPosition + spawnOffset;
                 // Instantiate both cubes
                 GameObject newCubeOne = Instantiate(smallPlayerCubeOne, parentGameObjectPosition, Quaternion.identity);
-                GameObject newCubeTwo = Instantiate(smallPlayerCubeTwo, parentGameObjectPosition, Quaternion.identity);
+                GameObject newCubeTwo = Instantiate(smallPlayerCubeTwo, offsetSpawnPosition, Quaternion.identity);
                 newCubeOne.transform.parent = gameObject.transform;
                 newCubeOne.name = "PlayerCubeSmall_One";
                 newCubeTwo.transform.parent = gameObject.transform;
@@ -46,9 +50,13 @@ public class CubeHandler : MonoBehaviour
                 Destroy(largeCube);
 
                 // Apply small force for bounce effect
-                Vector3 bounceForce = new Vector3(0, bounceAmount, 0);
-                Rigidbody newCubeOneRb = newCubeOne.GetComponent<Rigidbody>();
-                newCubeOneRb.AddForce(bounceForce, ForceMode.Impulse);
+                Vector3 bounceForceCubeOne = new Vector3(0, yBounceAmout, 0);
+                Rigidbody newCubeOneRb = newCubeTwo.GetComponent<Rigidbody>();
+                newCubeOneRb.AddForce(bounceForceCubeOne, ForceMode.Impulse);
+
+                Vector3 bounceForceCubeTwo = new Vector3(xBounceAmout, yBounceAmout, 0);
+                Rigidbody newCubeTwoRb = newCubeTwo.GetComponent<Rigidbody>();
+                newCubeTwoRb.AddForce(bounceForceCubeTwo, ForceMode.Impulse);
 
                 // Set the combine status to false
                 isCombined = false;
@@ -67,7 +75,7 @@ public class CubeHandler : MonoBehaviour
                 Destroy(smallCubeTwo);
 
                 // Apply small force for bounce effect
-                Vector3 bounceForce = new Vector3(0, bounceAmount, 0);
+                Vector3 bounceForce = new Vector3(0, xBounceAmout, 0);
                 Rigidbody newLargeCubeRb = newLargeCube.GetComponent<Rigidbody>();
                 newLargeCubeRb.AddForce(bounceForce, ForceMode.Impulse);
 
