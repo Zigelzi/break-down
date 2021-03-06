@@ -1546,10 +1546,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4492565175148559844, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}
-      propertyPath: bounceAmount
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 5882474957370232362, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1564,7 +1560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5882474957370232362, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 15.52
       objectReference: {fileID: 0}
     - target: {fileID: 5882474957370232362, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1598,7 +1594,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: ed10c9a9f4054974cb61fafdeae5c1f5, type: 3}
 --- !u!1 &7631254443934967597
 GameObject:
