@@ -46,11 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4450a9a5d4aae224c9d9ccebe5e47e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  largePlayerCube: {fileID: 5191485162054141961, guid: c566b14e5d482744593261edbeafcad9, type: 3}
-  smallPlayerCubeOne: {fileID: 248721600509458016, guid: 2d83ebb2086ff8040a9d93dce19b1d53, type: 3}
-  smallPlayerCubeTwo: {fileID: 8663299103297384437, guid: 41d8b27b914c28f43aea4501a355c5bd, type: 3}
+  largePlayerCubePrefab: {fileID: 5191485162054141961, guid: c566b14e5d482744593261edbeafcad9, type: 3}
+  smallPlayerCubeOnePrefab: {fileID: 248721600509458016, guid: 2d83ebb2086ff8040a9d93dce19b1d53, type: 3}
+  smallPlayerCubeTwoPrefab: {fileID: 8663299103297384437, guid: 41d8b27b914c28f43aea4501a355c5bd, type: 3}
   isCombined: 1
-  bounceAmount: 20
+  xBounceAmout: 100
+  yBounceAmout: 10
+  spawnOffset: {x: 2, y: 0, z: 0}
 --- !u!114 &318242640502527255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +81,7 @@ GameObject:
   - component: {fileID: 5882474958081938421}
   m_Layer: 0
   m_Name: PlayerCamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

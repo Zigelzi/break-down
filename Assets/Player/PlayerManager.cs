@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour
 {
     [SerializeField] GameObject gameManager;
     private LevelManager levelManager;
+
     // Game State
     public enum State { Alive, Died, Transcending }
     public State gameState = State.Alive;

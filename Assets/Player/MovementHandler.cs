@@ -17,8 +17,10 @@ public class MovementHandler : MonoBehaviour
     void Start()
     {
         playerState = transform.parent.GetComponent<PlayerManager>();
+
         cubeRb = GetComponent<Rigidbody>();
         cubeRb.maxAngularVelocity = maxSpeed;
+
     }
 
     // Update is called once per frame

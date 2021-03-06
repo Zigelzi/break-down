@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78560d5d9f6be7d44b6b37da2a8632ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeMovementSpeed: 1000
+  cubeMovementSpeed: 3000
   turnSpeed: 100
   maxSpeed: 100
 --- !u!114 &5822437007763271811

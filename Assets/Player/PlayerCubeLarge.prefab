@@ -94,7 +94,7 @@ BoxCollider:
   m_GameObject: {fileID: 5191485162054141961}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -126,8 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78560d5d9f6be7d44b6b37da2a8632ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1500
+  cubeMovementSpeed: 3000
   turnSpeed: 80
+  maxSpeed: 200
 --- !u!136 &477763309919672281
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -137,7 +138,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 5191485162054141961}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.49384725
   m_Height: 1.0092307
   m_Direction: 0

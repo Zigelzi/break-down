@@ -6,9 +6,17 @@ public class CubeHandler : MonoBehaviour
 {
     // Player Cubes
     [Header("Player prefabs")]
-    [Tooltip("Green")] [SerializeField] GameObject largePlayerCube;
-    [Tooltip("Red")] [SerializeField] GameObject smallPlayerCubeOne;
-    [Tooltip("Blue")] [SerializeField] GameObject smallPlayerCubeTwo;
+    [Tooltip("Green")] [SerializeField] GameObject largePlayerCubePrefab;
+    [Tooltip("Red")] [SerializeField] GameObject smallPlayerCubeOnePrefab;
+    [Tooltip("Blue")] [SerializeField] GameObject smallPlayerCubeTwoPrefab;
+
+    // Existing cube references
+    private GameObject largeCube;
+    private GameObject smallCubeOne;
+    private GameObject smallCubeTwo;
+
+    // Camera reference
+    private CameraHandler mainCamera;
 
     [Header("Cube properties")]
     public bool isCombined = true;
@@ -19,13 +27,15 @@ public class CubeHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        largeCube = transform.Find("PlayerCubeLarge").gameObject;
+        mainCamera = transform.GetComponentInChildren<CameraHandler>();
     }
 
     // Update is called once per frame
     void Update()
     {
         HandleAction();
+        UpdateCameraPosition();
     }
 
     private void HandleAction()
@@ -38,15 +48,16 @@ public class CubeHandler : MonoBehaviour
                 // Add offset to spawn position so cubes don't affect each other
                 Vector3 offsetSpawnPosition = parentGameObjectPosition + spawnOffset;
                 // Instantiate both cubes
-                GameObject newCubeOne = Instantiate(smallPlayerCubeOne, parentGameObjectPosition, Quaternion.identity);
-                GameObject newCubeTwo = Instantiate(smallPlayerCubeTwo, offsetSpawnPosition, Quaternion.identity);
+                GameObject newCubeOne = Instantiate(smallPlayerCubeOnePrefab, parentGameObjectPosition, Quaternion.identity);
+                GameObject newCubeTwo = Instantiate(smallPlayerCubeTwoPrefab, offsetSpawnPosition, Quaternion.identity);
                 newCubeOne.transform.parent = gameObject.transform;
                 newCubeOne.name = "PlayerCubeSmall_One";
                 newCubeTwo.transform.parent = gameObject.transform;
                 newCubeTwo.name = "PlayerCubeSmall_Two";
+                smallCubeOne = newCubeOne;
+                smallCubeTwo = newCubeTwo;
 
                 // Destroy large cube
-                GameObject largeCube = transform.Find("PlayerCubeLarge").gameObject;
                 Destroy(largeCube);
 
                 // Apply small force for bounce effect
@@ -64,13 +75,12 @@ public class CubeHandler : MonoBehaviour
             else
             {
                 // Instantiate new large cube
-                GameObject newLargeCube = Instantiate(largePlayerCube, parentGameObjectPosition, Quaternion.identity);
+                GameObject newLargeCube = Instantiate(largePlayerCubePrefab, parentGameObjectPosition, Quaternion.identity);
                 newLargeCube.transform.parent = gameObject.transform;
                 newLargeCube.name = "PlayerCubeLarge";
+                largeCube = newLargeCube;
 
                 // Destroy small cubes
-                GameObject smallCubeOne = transform.Find("PlayerCubeSmall_One").gameObject;
-                GameObject smallCubeTwo = transform.Find("PlayerCubeSmall_Two").gameObject;
                 Destroy(smallCubeOne);
                 Destroy(smallCubeTwo);
 
@@ -84,5 +94,27 @@ public class CubeHandler : MonoBehaviour
             }
         }
     }
-        
+
+    private void UpdateCameraPosition()
+    {
+        Vector3 cameraOffset = new Vector3(0, 23, -12);
+        if (isCombined)
+        {
+            // If large cube, keep the Player gameobject at cube position, so that
+            // splitting happens in correct place
+            Vector3 largeCubePosition = largeCube.transform.position;
+            mainCamera.transform.position = largeCubePosition + cameraOffset;
+
+        }
+        else
+        {
+            // If two cubes, keep the gameobject in between the two cubes
+            Vector3 smallCubeOnePosition = smallCubeOne.transform.position;
+            Vector3 smallCubeTwoPosition = smallCubeTwo.transform.position;
+            Vector3 middlePosition = smallCubeOnePosition - (smallCubeOnePosition - smallCubeTwoPosition) / 2;
+            mainCamera.transform.position = middlePosition + cameraOffset;
+           
+        }
+    }
+
 }
