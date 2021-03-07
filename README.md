@@ -35,3 +35,24 @@ Things to work on
 - [ ] Create narrow path obstacle
 - [ ] Create 3 different levels
 - [ ] Create door with two triggers
+
+
+#### G/V/SFX
+
+**GFX**
+- [ ] Add large cube model
+- [ ] Add small cube models
+- [ ] Add environment details
+- [ ] Add skybox
+
+**SFX**
+- [ ] Add ambient music
+- [ ] Add death SFX
+- [ ] Add spawn SFX
+- [ ] Success SFX
+- [ ] Add movement SFX 
+
+**VFX**
+- [ ] Add death VFX - Crumble?
+- [ ] Add spawn VFX - Thump?
+- [ ] Add success VFX - Bounce?
