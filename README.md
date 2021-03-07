@@ -30,7 +30,7 @@ Things to work on
 
 #### Obstacles
 - [x] Create door that opens on trigger
-- [ ] Create oscillating obstacle
+- [x] Create oscillating obstacle
 - [ ] Create falling floor obstacle
 - [ ] Create narrow path obstacle
 - [ ] Create 3 different levels
@@ -43,7 +43,7 @@ Things to work on
 - [ ] Add large cube model
 - [ ] Add small cube models
 - [ ] Add environment details
-- [ ] Add skybox
+- [x] Add skybox
 
 **SFX**
 - [ ] Add ambient music
