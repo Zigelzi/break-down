@@ -23,6 +23,27 @@ public class LevelManager : MonoBehaviour
         
     }
 
+    private bool PreviousLevelExists()
+    {
+        if (currentLevel > 0)
+        {
+            return true;
+        }
+        else
+        {
+            Debug.Log("No previous level available!");
+            return false;
+        }
+    }
+
+    public void LoadPreviousLevel()
+    {
+        if (PreviousLevelExists())
+        {
+            SceneManager.LoadScene(currentLevel - 1);
+        }
+    }
+
     private bool NextLevelExists()
     {
         if (currentLevel < totalLevels)
@@ -42,6 +63,11 @@ public class LevelManager : MonoBehaviour
         {
             SceneManager.LoadScene(currentLevel + 1);
         }
+    }
+
+    public void LoadTestLevel()
+    {
+        SceneManager.LoadScene("TestArea");
     }
 
     public void RestartGameAfterDelay()
