@@ -2,28 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorHandler : MonoBehaviour
+public class DoorController : MonoBehaviour
 {
     [SerializeField] GameObject doorTriggerGameObject;
     [SerializeField] float openingSpeed = 2f;
     [SerializeField] bool doorAtUpperLimit = false;
     [SerializeField] bool doorAtLowerLimit = false;
 
-    TriggerPlateHandler doorTrigger;
+    TriggerPlateController doorTrigger;
 
     // Start is called before the first frame update
     void Start()
     {
-        doorTrigger = doorTriggerGameObject.GetComponent<TriggerPlateHandler>();
+        doorTrigger = doorTriggerGameObject.GetComponent<TriggerPlateController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveDoor();
+        HandleDoorMovement();
     }
 
-    private void MoveDoor()
+    private void HandleDoorMovement()
     {
         if (!IsDoorAtUpperLimit() && doorTrigger.platePushed)
         {

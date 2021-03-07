@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeHandler : MonoBehaviour
+public class CubeController : MonoBehaviour
 {
     // Player Cubes
     [Header("Player prefabs")]
@@ -16,7 +16,7 @@ public class CubeHandler : MonoBehaviour
     private GameObject smallCubeTwo;
 
     // Camera reference
-    private CameraHandler mainCamera;
+    private CameraController mainCamera;
 
     [Header("Cube properties")]
     public bool isCombined = true;
@@ -28,7 +28,7 @@ public class CubeHandler : MonoBehaviour
     void Start()
     {
         largeCube = transform.Find("PlayerCubeLarge").gameObject;
-        mainCamera = transform.GetComponentInChildren<CameraHandler>();
+        mainCamera = transform.GetComponentInChildren<CameraController>();
     }
 
     // Update is called once per frame

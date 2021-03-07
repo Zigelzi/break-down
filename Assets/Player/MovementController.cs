@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementHandler : MonoBehaviour
+public class MovementController : MonoBehaviour
 {
     [Header("Player attributes")]
     [Tooltip("In ms^-2")] [SerializeField] float cubeMovementSpeed = 1000f;
@@ -11,12 +11,12 @@ public class MovementHandler : MonoBehaviour
 
     private Rigidbody cubeRb;
 
-    private GameStateHandler gameManager;
+    private GameState gameState;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.FindWithTag("GameController").GetComponent<GameStateHandler>();
+        gameState = GameObject.FindWithTag("GameController").GetComponent<GameState>();
 
         cubeRb = GetComponent<Rigidbody>();
         cubeRb.maxAngularVelocity = maxSpeed;
@@ -26,7 +26,7 @@ public class MovementHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.gameState == GameStateHandler.State.Alive)
+        if (gameState.gameState == GameState.State.Alive)
         {
             HandleInput();
         }

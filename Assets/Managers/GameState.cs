@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameStateHandler : MonoBehaviour
+public class GameState : MonoBehaviour
 {
     private LevelManager levelManager;
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerPlateHandler : MonoBehaviour
+public class TriggerPlateController : MonoBehaviour
 {
     public bool platePushed = false;
 
