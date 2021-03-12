@@ -20,7 +20,10 @@ public class CameraController : MonoBehaviour
 
     private void FollowPlayer()
     {
-        Vector3 playerPosition = cubeController.GetCubePosition();
-        transform.position = playerPosition + cameraOffset;
+        Vector3 cubePosition = cubeController.GetCubePosition();
+
+        // Remove the bouncing from player movement
+        Vector3 stabilisedCubePosition = new Vector3(cubePosition.x, 0, cubePosition.z);
+        transform.position = stabilisedCubePosition + cameraOffset;
     }
 }

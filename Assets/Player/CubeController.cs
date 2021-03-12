@@ -15,9 +15,6 @@ public class CubeController : MonoBehaviour
     private GameObject smallCubeOne;
     private GameObject smallCubeTwo;
 
-    // Camera reference
-    private CameraController mainCamera;
-
     [Header("Cube properties")]
     public bool isCombined = true;
     [SerializeField] float xBounceAmout = 100f;
@@ -28,7 +25,6 @@ public class CubeController : MonoBehaviour
     void Start()
     {
         largeCube = transform.Find("PlayerCubeLarge").gameObject;
-        mainCamera = transform.GetComponentInChildren<CameraController>();
     }
 
     // Update is called once per frame
