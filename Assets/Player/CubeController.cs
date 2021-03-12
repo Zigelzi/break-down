@@ -40,54 +40,58 @@ public class CubeController : MonoBehaviour
             Vector3 parentGameObjectPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             if (isCombined)
             {
-                // Add offset to spawn position so cubes don't affect each other
-                Vector3 offsetSpawnPosition = parentGameObjectPosition + spawnOffset;
-                // Instantiate both cubes
-                GameObject newCubeOne = Instantiate(smallPlayerCubeOnePrefab, parentGameObjectPosition, Quaternion.identity);
-                GameObject newCubeTwo = Instantiate(smallPlayerCubeTwoPrefab, offsetSpawnPosition, Quaternion.identity);
-                newCubeOne.transform.parent = gameObject.transform;
-                newCubeOne.name = "PlayerCubeSmall_One";
-                newCubeTwo.transform.parent = gameObject.transform;
-                newCubeTwo.name = "PlayerCubeSmall_Two";
-                smallCubeOne = newCubeOne;
-                smallCubeTwo = newCubeTwo;
-
-                // Destroy large cube
+                SpawnSmallCubes(parentGameObjectPosition);
                 Destroy(largeCube);
 
                 // Apply small force for bounce effect
-                Vector3 bounceForceCubeOne = new Vector3(0, yBounceAmout, 0);
-                Rigidbody newCubeOneRb = newCubeTwo.GetComponent<Rigidbody>();
-                newCubeOneRb.AddForce(bounceForceCubeOne, ForceMode.Impulse);
-
-                Vector3 bounceForceCubeTwo = new Vector3(xBounceAmout, yBounceAmout, 0);
-                Rigidbody newCubeTwoRb = newCubeTwo.GetComponent<Rigidbody>();
-                newCubeTwoRb.AddForce(bounceForceCubeTwo, ForceMode.Impulse);
+                BounceCube(smallCubeOne, 0, yBounceAmout);
+                BounceCube(smallCubeTwo, xBounceAmout, yBounceAmout);
 
                 // Set the combine status to false
                 isCombined = false;
             }
             else
             {
-                // Instantiate new large cube
-                GameObject newLargeCube = Instantiate(largePlayerCubePrefab, parentGameObjectPosition, Quaternion.identity);
-                newLargeCube.transform.parent = gameObject.transform;
-                newLargeCube.name = "PlayerCubeLarge";
-                largeCube = newLargeCube;
-
-                // Destroy small cubes
+                SpawnLargeCube(parentGameObjectPosition);
                 Destroy(smallCubeOne);
                 Destroy(smallCubeTwo);
 
                 // Apply small force for bounce effect
-                Vector3 bounceForce = new Vector3(0, xBounceAmout, 0);
-                Rigidbody newLargeCubeRb = newLargeCube.GetComponent<Rigidbody>();
-                newLargeCubeRb.AddForce(bounceForce, ForceMode.Impulse);
-
+                BounceCube(largeCube, xBounceAmout, 0);
+                
                 // Set the combine status to false
                 isCombined = true;
             }
         }
+    }
+
+    private void SpawnSmallCubes(Vector3 parentGameObjectPosition) {
+        // Add offset to spawn position so cubes don't affect each other
+        Vector3 offsetSpawnPosition = parentGameObjectPosition + spawnOffset;
+        // Instantiate both cubes
+        GameObject newCubeOne = Instantiate(smallPlayerCubeOnePrefab, parentGameObjectPosition, Quaternion.identity);
+        GameObject newCubeTwo = Instantiate(smallPlayerCubeTwoPrefab, offsetSpawnPosition, Quaternion.identity);
+        newCubeOne.transform.parent = gameObject.transform;
+        newCubeOne.name = "PlayerCubeSmall_One";
+        newCubeTwo.transform.parent = gameObject.transform;
+        newCubeTwo.name = "PlayerCubeSmall_Two";
+        smallCubeOne = newCubeOne;
+        smallCubeTwo = newCubeTwo;
+    }
+
+    private void SpawnLargeCube(Vector3 parentGameObjectPosition)
+    {
+        GameObject newLargeCube = Instantiate(largePlayerCubePrefab, parentGameObjectPosition, Quaternion.identity);
+        newLargeCube.transform.parent = gameObject.transform;
+        newLargeCube.name = "PlayerCubeLarge";
+        largeCube = newLargeCube;
+    }
+
+    private void BounceCube(GameObject targetCube, float xBounceAmount, float yBounceAmount)
+    {
+        Vector3 bounceForce = new Vector3(xBounceAmount, yBounceAmount, 0);
+        Rigidbody cubeRb = targetCube.GetComponent<Rigidbody>();
+        cubeRb.AddForce(bounceForce, ForceMode.Impulse);
     }
 
     public Vector3 GetCubePosition()
