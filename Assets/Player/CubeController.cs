@@ -40,7 +40,7 @@ public class CubeController : MonoBehaviour
             Vector3 parentGameObjectPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             if (isCombined)
             {
-                SpawnSmallCubes(parentGameObjectPosition);
+                SpawnSmallCubes(largeCube.transform.position);
                 Destroy(largeCube);
 
                 // Apply small force for bounce effect
@@ -52,7 +52,7 @@ public class CubeController : MonoBehaviour
             }
             else
             {
-                SpawnLargeCube(parentGameObjectPosition);
+                SpawnLargeCube(smallCubeOne.transform.position);
                 Destroy(smallCubeOne);
                 Destroy(smallCubeTwo);
 
@@ -68,14 +68,16 @@ public class CubeController : MonoBehaviour
     private void SpawnSmallCubes(Vector3 parentGameObjectPosition) {
         // Add offset to spawn position so cubes don't affect each other
         Vector3 offsetSpawnPosition = parentGameObjectPosition + spawnOffset;
+
         // Instantiate both cubes
         GameObject newCubeOne = Instantiate(smallPlayerCubeOnePrefab, parentGameObjectPosition, Quaternion.identity);
-        GameObject newCubeTwo = Instantiate(smallPlayerCubeTwoPrefab, offsetSpawnPosition, Quaternion.identity);
         newCubeOne.transform.parent = gameObject.transform;
         newCubeOne.name = "PlayerCubeSmall_One";
+        smallCubeOne = newCubeOne;
+
+        GameObject newCubeTwo = Instantiate(smallPlayerCubeTwoPrefab, offsetSpawnPosition, Quaternion.identity);
         newCubeTwo.transform.parent = gameObject.transform;
         newCubeTwo.name = "PlayerCubeSmall_Two";
-        smallCubeOne = newCubeOne;
         smallCubeTwo = newCubeTwo;
     }
 
