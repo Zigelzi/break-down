@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] GameObject player;
     [SerializeField] Vector3 cameraOffset = new Vector3(0, 23, -12);
+    CubeController cubeController;
+
+    void Start()
+    {
+        cubeController = GetComponentInParent<CubeController>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -15,8 +20,7 @@ public class CameraController : MonoBehaviour
 
     private void FollowPlayer()
     {
-        //player = transform.parent.transform.
-        //Vector3 playerPosition = player.transform.position;
-        //transform.position = playerPosition + cameraOffset;
+        Vector3 playerPosition = cubeController.GetCubePosition();
+        transform.position = playerPosition + cameraOffset;
     }
 }

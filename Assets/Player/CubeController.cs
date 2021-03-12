@@ -35,7 +35,6 @@ public class CubeController : MonoBehaviour
     void Update()
     {
         HandleAction();
-        UpdateCameraPosition();
     }
 
     private void HandleAction()
@@ -95,16 +94,14 @@ public class CubeController : MonoBehaviour
         }
     }
 
-    private void UpdateCameraPosition()
+    public Vector3 GetCubePosition()
     {
-        Vector3 cameraOffset = new Vector3(0, 23, -12);
         if (isCombined)
         {
             // If large cube, keep the Player gameobject at cube position, so that
             // splitting happens in correct place
             Vector3 largeCubePosition = largeCube.transform.position;
-            mainCamera.transform.position = largeCubePosition + cameraOffset;
-
+            return largeCubePosition;
         }
         else
         {
@@ -112,9 +109,7 @@ public class CubeController : MonoBehaviour
             Vector3 smallCubeOnePosition = smallCubeOne.transform.position;
             Vector3 smallCubeTwoPosition = smallCubeTwo.transform.position;
             Vector3 middlePosition = smallCubeOnePosition - (smallCubeOnePosition - smallCubeTwoPosition) / 2;
-            mainCamera.transform.position = middlePosition + cameraOffset;
-           
+            return middlePosition;
         }
-    }
-
+    } 
 }
