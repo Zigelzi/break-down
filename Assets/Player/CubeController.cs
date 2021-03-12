@@ -37,10 +37,11 @@ public class CubeController : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            Vector3 parentGameObjectPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            Vector3 spawnPoint = GetCubePosition();
             if (isCombined)
             {
-                SpawnSmallCubes(largeCube.transform.position);
+                
+                SpawnSmallCubes(spawnPoint);
                 Destroy(largeCube);
 
                 // Apply small force for bounce effect
@@ -52,7 +53,7 @@ public class CubeController : MonoBehaviour
             }
             else
             {
-                SpawnLargeCube(smallCubeOne.transform.position);
+                SpawnLargeCube(spawnPoint);
                 Destroy(smallCubeOne);
                 Destroy(smallCubeTwo);
 
