@@ -26,6 +26,8 @@ Things to work on
 - [x] Create splitting of the large cube
 - [x] Create merging of small cubes
 - [ ] Refine player movement
+    - Movement feels clunky and slow
+    - Player can get stuck on sideways
 - [ ] Pull small cubes together before merging into large cube (spring joint?)
 
 #### Obstacles
@@ -33,11 +35,20 @@ Things to work on
 - [x] Create oscillating obstacle
 - [ ] Create falling floor obstacle
 - [ ] Create narrow path obstacle
-- [ ] Create 3 different levels
 - [ ] Create door with two triggers
 
+#### Levels
+- [ ] Create first 3 levels
+  - [ ] Teach button mechanic
+  - [ ] Teach split mechanic
+  - [ ] Teach weight mechanic 
 
-#### G/V/SFX
+### UI
+- [ ] Create main menu
+- [ ] Create settings for changing keys
+- [ ] Display current level
+
+### G/V/SFX
 
 **GFX**
 - [ ] Add large cube model
@@ -56,3 +67,6 @@ Things to work on
 - [ ] Add death VFX - Crumble?
 - [ ] Add spawn VFX - Thump?
 - [ ] Add success VFX - Bounce?
+
+### Bugs
+- [ ] 
