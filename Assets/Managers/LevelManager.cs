@@ -15,8 +15,6 @@ public class LevelManager : MonoBehaviour
     {
         totalLevels = SceneManager.sceneCountInBuildSettings;
         currentLevel = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log(totalLevels);
-        Debug.Log(currentLevel);
     }
 
     // Update is called once per frame
