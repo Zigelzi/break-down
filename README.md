@@ -25,7 +25,7 @@ Things to work on
 - [x] Create camera movement
 - [x] Create splitting of the large cube
 - [x] Create merging of small cubes
-- [ ] Refine player movement
+- [x] Refine player movement
     - Movement feels clunky and slow
     - Player can get stuck on sideways
 - [ ] Pull small cubes together before merging into large cube (spring joint?)
@@ -69,4 +69,4 @@ Things to work on
 - [ ] Add success VFX - Bounce?
 
 ### Bugs
-- [ ] 
+- [ ] Splitting cubes at moving platform causes error
